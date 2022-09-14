@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* CONFIG GERAIS
+Resetando confirações do navegador*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+/*vai aplicar as configuraçoes em todas as tag do main
+main * {
+    border: 1px solid red;
+}
+*/
+
+ul {
+    list-style: none;
+}
+
+
+/*CONFIG DE ESTILO*/
+body {
+    background-image: url(./assets/bg.jpg);
+    /* posicionamento do fundo(da imagem do fundo) que sera no topo e centralizado*/
+    background-position: top center;
+    /* o tamanho vai aumentar,  100% vai ser a largura disponivel da tela e o auto vai ser a altura vai ser automatica*/
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+main {
+    max-width: 580px;
+    /* 90% da largura do main*/
+    width: 90%;
+    margin: auto;
+
+/* uma forma  
+    display: flex;
+    flex-direction: column;
+    ou  
+    display: grid;
+    aqui vai gerar o mesmo resultado
+*/
+    display: grid;
+    gap: 24px;
+
+    margin-top: 32px;
+}
+
+section {
+    color: white;
+
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 23px;
+    padding-top: 24px;
+    border-radius: 8px;
+
+    
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+/*display tem haver com a visualizacao das caxias:
+    block: bloqueia linha inteira e joga o proximo elemento par baixo
+    inline: uma parte da linha e proximo fica ao lado  na mesma linha
+    flex: muda o comportada das caixas que estao dentro dela(filhas)
+    gap: distrancia entre as caixas filhas, so funciona quando tem o flex
+    flex-wrap: wrap ;quando tiver mais elemnentes ele vai colocar na proxima linha e vai manter a caixa do mesmo tamanho
+*/
+
+section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+ul.games-list img {
+    border-radius: 8px;
+    width: 90px;
+}
+
+ul.channel-list img {
+    border-radius: 50%;
+    width: 70px;
+}
+
