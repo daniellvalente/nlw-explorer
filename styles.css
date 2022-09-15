@@ -13,8 +13,8 @@ body * {
     line-height: 160%;
 }
 
-/*vai aplicar as configuraçoes em todas as tag do main
-main * {
+/*vai aplicar as configuraçoes em todas as tags filhas
+body * {
     border: 1px solid red;
 }
 */
@@ -35,11 +35,44 @@ body {
     background-color: #121214;
 }
 
+header{
+    max-width: 580px;
+    margin: auto;
+    /*text-align alinha tudo que ele entende como propriedade de texto, a img é uma propriedade de texto, se nao alinhar é pq nao tem propriedades de texto*/
+    padding-top: 32px;
+    /*faz o css fazer o calculo para, no caso para calular a altura com o padding*/
+    height: calc(120px + 32px);
+  
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+
+    display: flex;
+    /*vai expandir a caixa em 4px e vai vazar da imagem*/
+    padding: 4px;
+    transition: transform .2s;
+}
+
+header div:hover {
+    transform: scale(1.1);
+}
+
+header div img {
+    width: 100%;
+    border-radius: 50%;
+
+}
+
 main {
     max-width: 580px;
     /* 90% da largura do main*/
     width: 90%;
-    margin: auto;
+    margin: 32px auto;
 
 /* uma forma  
     display: flex;
@@ -51,7 +84,7 @@ main {
     display: grid;
     gap: 24px;
 
-    margin-top: 32px;
+    
 }
 
 section {
@@ -96,6 +129,15 @@ section ul {
     margin-top: 24px;
 }
 
+section ul li {
+    transition: transform .2s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+
+}
+
 ul.games-list img {
     border-radius: 8px;
     width: 90px;
@@ -104,5 +146,86 @@ ul.games-list img {
 ul.channel-list img {
     border-radius: 50%;
     width: 70px;
+    border: 1px solid #443E54;
 }
 
+/*Aplicando a animção*/
+header div {
+    /*precisa pelo menos de duas prorpriedades: nome e tempo. 
+    A propriedade backwards vai puxar as configuraçoes do from, definida na animação e executar*/
+    animation: fromTop .7s backwards;
+    /*aguarda 1 segundo para inciar a a nimação*/
+    animation-delay: .2s;
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+/*Main pega o section filho numero (1) 
+ o primeiro filho*/
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+/*Main pega o section filho numero (2) 
+ o segundo filho*/
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+/*Main pega o section filho numero (3) 
+ o terceiro filho*/
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+
+/*Definindo a animaçao fromTop*/
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);  
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+/* animation
+ 
+@keyframes - vai dar inicio a animaçao
+fromTop - nome escolhido para nossa animacao que sera de cima pra baixo
+from ou 0% - vai ser o inicio 
+to ou 100% - vai ser onde termina
+translateY() - vai percorer o eixo y(vertical)
+opacity - vai fazer aparecer no 0(nao visivel) para 1(totalmente visivel)
+
+posião atual do elemento: sera onde ele esta no momento, onde ele esta agora é a posicao 0.
+
+DEFINICAO DA AMINAÇÂO
+@keyframes fromTop {
+    from {}
+
+    to{}
+}
+ou
+@keyframes formTop {
+    0% {}
+
+    100% {}
+}
+*/
